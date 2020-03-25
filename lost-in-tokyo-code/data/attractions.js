@@ -68,5 +68,13 @@ const attractions = [
     link: 'http://www.ghibli-museum.jp/en/',
     image: 'image_9.jpg',
     className: 'w-third-l ml-auto-l'
+  },
+  {
+    title: 'last Image',
+    description:
+      'homework image added manually at the very end',
+    link: 'https://zine.mount.co.jp/',
+    image: 'image_10.jpg',
+    className : 'w-third-l ml5-1'
   }
 ];

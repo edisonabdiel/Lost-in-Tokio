@@ -82,7 +82,7 @@ class Attraction extends React.Component{
         return (
             <div className={`ph4 ph5-ns ph0-1 mb4 mb5-ns w-100 overflow-hidden pointer
     attraction ${className}`}
-                onClick={this.toggleInfo}
+                onMouseEnter={this.toggleInfo}
                 onMouseLeave={this.closeInfo}
             >
                 <div className='relative'>
