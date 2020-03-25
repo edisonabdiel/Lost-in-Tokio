@@ -39,6 +39,21 @@ const Nav = () => (
     </nav>
 );
 
+const Overlay = ({title, description, showInfo }) => (
+    <div className='absolute w-100 h-100 flex items-center pa3 pa4-ns bg-aqua
+            overlay' 
+                        style={{
+                            transform: showInfo ? "none" : 'translateY(-100%)'
+                        }}
+                    >
+            <div>
+        <h1 className="f4 f3-ns nt0 mb2 regular black normal lh-title">{title}</h1>
+                    <p className="lh-tittle lh-copy-ns mv0 black f6 measure-1">
+                        {description}</p>
+                </div>
+            </div>
+)
+
 class Attraction extends React.Component{
     constructor(props) {
         super(props)
@@ -48,6 +63,7 @@ class Attraction extends React.Component{
         this.toggleInfo = this.toggleInfo.bind(this);
         this.closeInfo = this.closeInfo.bind(this);
     }
+
     toggleInfo() {
         this.setState ((prevState, showInfo) => ({
              showInfo: !prevState.showInfo 
@@ -69,19 +85,8 @@ class Attraction extends React.Component{
                 onClick={this.toggleInfo}
                 onMouseLeave={this.closeInfo}
             >
-        <div className='relative'>
-            <div className='absolute w-100 h-100 flex items-center pa3 pa4-ns bg-aqua
-            overlay' 
-                        style={{
-                            transform: showInfo ? "none" : 'translateY(-100%)'
-                        }}
-                    >
-            <div>
-        <h1 className="f4 f3-ns nt0 mb2 regular black normal lh-title">{title}</h1>
-                    <p className="lh-tittle lh-copy-ns mv0 black f6 measure-1">
-                        {description}</p>
-                </div>
-            </div>
+                <div className='relative'>
+                    <Overlay {...this.props}{...this.state}/>
             <img src={`../images/${image}`} />
         </div>
     </div>
